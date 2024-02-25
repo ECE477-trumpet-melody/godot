@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://cf6umqvscbc3t"]
+
+[ext_resource type="Script" path="res://Scripts/TuturialPage.gd" id="1_8wex7"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_hxtwx"]
+
+[node name="TuturialPage" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_8wex7")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+position = Vector2(577.908, 325.901)
+rotation = 3.14159
+scale = Vector2(1150.82, -652.802)
+mesh = SubResource("QuadMesh_hxtwx")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 334.0
+offset_top = 314.0
+offset_right = 520.0
+offset_bottom = 377.0
+text = "Menu"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

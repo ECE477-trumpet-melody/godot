@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://mbp6htfw0yru"]
+
+[ext_resource type="Script" path="res://Scripts/Menu.gd" id="1_nmunr"]
+[ext_resource type="PackedScene" uid="uid://ilmoh26sbmoy" path="res://OptionsPage.tscn" id="2_yqb6o"]
+[ext_resource type="AudioStream" uid="uid://cgeve0q6q4vad" path="res://Sounds/peaky.mp3" id="3_vfhqt"]
+
+[node name="Menu" type="CanvasLayer"]
+script = ExtResource("1_nmunr")
+
+[node name="ButtonMenu" type="VBoxContainer" parent="."]
+offset_left = 654.0
+offset_top = 182.0
+offset_right = 992.0
+offset_bottom = 424.0
+
+[node name="Tutorial" type="Button" parent="ButtonMenu"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Tutorial"
+
+[node name="Start" type="Button" parent="ButtonMenu"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Start"
+
+[node name="Options" type="Button" parent="ButtonMenu"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Options"
+
+[node name="OptionsPage" parent="." instance=ExtResource("2_yqb6o")]
+visible = false
+
+[node name="menuMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_vfhqt")
+autoplay = true
+
+[connection signal="pressed" from="ButtonMenu/Tutorial" to="." method="_on_tutorial_pressed"]
+[connection signal="pressed" from="ButtonMenu/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="ButtonMenu/Options" to="." method="_on_options_pressed"]
