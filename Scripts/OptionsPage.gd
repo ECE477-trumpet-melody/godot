@@ -1,11 +1,14 @@
 extends Control
 
 @onready var volume = %Volume
-var vol_indx = AudioServer.get_bus_index("volControl")
+@onready var menu_butt = %Button
 
+var vol_indx = AudioServer.get_bus_index("volControl")
 var sets: Settings
 
 func _ready():
+	menu_butt.grab_focus()
+	
 	$volumeTest.play()
 	sets = Settings.loadIn()
 	if volume:
