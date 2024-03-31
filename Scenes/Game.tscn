@@ -1,5 +1,30 @@
-[gd_scene format=3 uid="uid://ce4vj50lnoj2t"]
+[gd_scene load_steps=3 format=3 uid="uid://ce4vj50lnoj2t"]
+
+[ext_resource type="Texture2D" uid="uid://dsi6twuny1h6y" path="res://477bg.png" id="1_ni50q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_keqol"]
+size = Vector2(128, 128)
 
 [node name="Game" type="Node2D"]
 
 [node name="Background" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+texture = ExtResource("1_ni50q")
+
+[node name="Top" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Top"]
+position = Vector2(104, 104)
+shape = SubResource("RectangleShape2D_keqol")
+
+[node name="Mid" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mid"]
+position = Vector2(104, 336)
+shape = SubResource("RectangleShape2D_keqol")
+
+[node name="Bot" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bot"]
+position = Vector2(104, 552)
+shape = SubResource("RectangleShape2D_keqol")

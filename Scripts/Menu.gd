@@ -12,7 +12,7 @@ func _on_tutorial_pressed():
 	get_tree().change_scene_to_file("res://Scenes/TutorialPage.tscn")
 
 func _on_start_pressed():
-	get_tree().change_scene_to_file("res://Scenes/StartGame.tscn")
+	get_tree().change_scene_to_file("res://Scenes/Game.tscn")
 
 func _on_options_pressed():
 	get_tree().change_scene_to_file("res://Scenes/OptionsPage.tscn")
