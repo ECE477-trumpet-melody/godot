@@ -1,5 +1,6 @@
 extends CanvasLayer
 @onready var tut_butt = %Tutorial
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	tut_butt.grab_focus()

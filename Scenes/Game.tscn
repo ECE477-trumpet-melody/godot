@@ -1,30 +1,61 @@
-[gd_scene load_steps=3 format=3 uid="uid://ce4vj50lnoj2t"]
+[gd_scene load_steps=6 format=3 uid="uid://ce4vj50lnoj2t"]
 
+[ext_resource type="Script" path="res://Scenes/Game.gd" id="1_f0gv5"]
 [ext_resource type="Texture2D" uid="uid://dsi6twuny1h6y" path="res://477bg.png" id="1_ni50q"]
+[ext_resource type="PackedScene" uid="uid://d2rpw2gcopmov" path="res://Scenes/nooooote.tscn" id="2_kwmeh"]
+[ext_resource type="AudioStream" uid="uid://cm35iih4gr8vq" path="res://Sounds/flea.mp3" id="3_klkx6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_keqol"]
 size = Vector2(128, 128)
 
 [node name="Game" type="Node2D"]
-
-[node name="Background" type="Sprite2D" parent="."]
-position = Vector2(576, 324)
-texture = ExtResource("1_ni50q")
+light_mask = 0
+script = ExtResource("1_f0gv5")
 
 [node name="Top" type="Area2D" parent="."]
+monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Top"]
 position = Vector2(104, 104)
 shape = SubResource("RectangleShape2D_keqol")
 
 [node name="Mid" type="Area2D" parent="."]
+monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Mid"]
 position = Vector2(104, 336)
 shape = SubResource("RectangleShape2D_keqol")
 
 [node name="Bot" type="Area2D" parent="."]
+monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bot"]
 position = Vector2(104, 552)
 shape = SubResource("RectangleShape2D_keqol")
+
+[node name="NotesTimer" type="Timer" parent="."]
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_klkx6")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+texture = ExtResource("1_ni50q")
+
+[node name="Note 1" parent="." instance=ExtResource("2_kwmeh")]
+top_level = true
+light_mask = 1
+visibility_layer = 1
+position = Vector2(3374, 104)
+
+[node name="Note 2" parent="." instance=ExtResource("2_kwmeh")]
+top_level = true
+light_mask = 1
+visibility_layer = 1
+position = Vector2(3551, 104)
+
+[node name="Note 3" parent="." instance=ExtResource("2_kwmeh")]
+top_level = true
+light_mask = 1
+visibility_layer = 1
+position = Vector2(3012, 552)
