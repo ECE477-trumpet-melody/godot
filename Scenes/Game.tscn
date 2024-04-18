@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://ce4vj50lnoj2t"]
+[gd_scene load_steps=8 format=3 uid="uid://ce4vj50lnoj2t"]
 
-[ext_resource type="Script" path="res://Scenes/Game.gd" id="1_f0gv5"]
-[ext_resource type="Texture2D" uid="uid://dsi6twuny1h6y" path="res://477bg.png" id="1_ni50q"]
-[ext_resource type="PackedScene" uid="uid://d2rpw2gcopmov" path="res://Scenes/nooooote.tscn" id="2_kwmeh"]
+[ext_resource type="Script" path="res://Scripts/Game.gd" id="1_f0gv5"]
+[ext_resource type="PackedScene" uid="uid://d2rpw2gcopmov" path="res://Scenes/PinkNote.tscn" id="2_kwmeh"]
 [ext_resource type="AudioStream" uid="uid://cm35iih4gr8vq" path="res://Sounds/flea.mp3" id="3_klkx6"]
+[ext_resource type="Texture2D" uid="uid://b0g3tqbmo8ji2" path="res://477bg_2.png" id="3_qj31p"]
+[ext_resource type="PackedScene" uid="uid://c0kopyf8aigvf" path="res://Scenes/OrangeNote.tscn" id="5_btx6h"]
+[ext_resource type="PackedScene" uid="uid://l1ig27o4gwuq" path="res://Scenes/GreenNote.tscn" id="6_d1wmn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_keqol"]
 size = Vector2(128, 128)
@@ -11,6 +13,16 @@ size = Vector2(128, 128)
 [node name="Game" type="Node2D"]
 light_mask = 0
 script = ExtResource("1_f0gv5")
+
+[node name="Score" type="Label" parent="."]
+top_level = true
+offset_left = 88.0
+offset_top = 600.0
+offset_right = 119.0
+offset_bottom = 648.0
+text = "test"
+horizontal_alignment = 2
+vertical_alignment = 1
 
 [node name="Top" type="Area2D" parent="."]
 monitorable = false
@@ -40,22 +52,50 @@ stream = ExtResource("3_klkx6")
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(576, 324)
-texture = ExtResource("1_ni50q")
+texture = ExtResource("3_qj31p")
 
-[node name="Note 1" parent="." instance=ExtResource("2_kwmeh")]
+[node name="Pink 1" parent="." instance=ExtResource("2_kwmeh")]
 top_level = true
 light_mask = 1
 visibility_layer = 1
 position = Vector2(3374, 104)
 
-[node name="Note 2" parent="." instance=ExtResource("2_kwmeh")]
+[node name="Pink 2" parent="." instance=ExtResource("2_kwmeh")]
 top_level = true
 light_mask = 1
 visibility_layer = 1
 position = Vector2(3551, 104)
 
-[node name="Note 3" parent="." instance=ExtResource("2_kwmeh")]
+[node name="Pink 3" parent="." instance=ExtResource("2_kwmeh")]
 top_level = true
 light_mask = 1
 visibility_layer = 1
-position = Vector2(3012, 552)
+position = Vector2(4082, 328)
+
+[node name="Pink 4" parent="." instance=ExtResource("2_kwmeh")]
+top_level = true
+light_mask = 1
+visibility_layer = 1
+position = Vector2(3728, 104)
+
+[node name="Orange 1" parent="." instance=ExtResource("5_btx6h")]
+position = Vector2(4790, 328)
+
+[node name="Orange 2" parent="." instance=ExtResource("5_btx6h")]
+position = Vector2(4967, 328)
+
+[node name="Orange 3" parent="." instance=ExtResource("5_btx6h")]
+position = Vector2(5144, 328)
+
+[node name="Orange 4" parent="." instance=ExtResource("5_btx6h")]
+position = Vector2(5450, 552)
+
+[node name="Green 1" parent="." instance=ExtResource("6_d1wmn")]
+position = Vector2(5832, 552)
+
+[connection signal="area_entered" from="Top" to="." method="_on_top_area_entered"]
+[connection signal="area_exited" from="Top" to="." method="_on_top_area_exited"]
+[connection signal="area_entered" from="Mid" to="." method="_on_mid_area_entered"]
+[connection signal="area_exited" from="Mid" to="." method="_on_mid_area_exited"]
+[connection signal="area_entered" from="Bot" to="." method="_on_bot_area_entered"]
+[connection signal="area_exited" from="Bot" to="." method="_on_bot_area_exited"]
