@@ -33,7 +33,6 @@ func _process(delta):
 	var time = (Time.get_ticks_usec() - time_begin) / 1000000.0
 	time -= time_delay
 	time = max(0, time)
-	#print("Time is: ", time)
 	
 	trigger = Input.get_action_strength("side_slide")
 	

@@ -1,6 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://cf6umqvscbc3t"]
+[gd_scene load_steps=8 format=3 uid="uid://cf6umqvscbc3t"]
 
 [ext_resource type="Script" path="res://Scripts/TutorialPage.gd" id="1_8wex7"]
+[ext_resource type="Texture2D" uid="uid://ce4lccv14dlgj" path="res://tutBG1.png" id="2_lakee"]
+[ext_resource type="Texture2D" uid="uid://bbkbhe7tbi086" path="res://tutBG2.png" id="3_h0l6w"]
+[ext_resource type="PackedScene" uid="uid://d2rpw2gcopmov" path="res://Scenes/PinkNote.tscn" id="4_xpctt"]
+[ext_resource type="PackedScene" uid="uid://c0kopyf8aigvf" path="res://Scenes/OrangeNote.tscn" id="5_iekq4"]
+[ext_resource type="PackedScene" uid="uid://l1ig27o4gwuq" path="res://Scenes/GreenNote.tscn" id="6_eri36"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o0d0n"]
+size = Vector2(128, 128)
 
 [node name="TuturialPage" type="Control"]
 layout_mode = 3
@@ -11,21 +19,97 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_8wex7")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(1, 1, 0.698039, 1)
+[node name="BG 1" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+texture = ExtResource("2_lakee")
 
-[node name="Button" type="Button" parent="."]
-layout_mode = 0
-offset_left = 933.0
-offset_top = 556.0
-offset_right = 1119.0
-offset_bottom = 619.0
-text = "Menu"
+[node name="BG 2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(576, 324)
+texture = ExtResource("3_h0l6w")
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[node name="Top" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Top"]
+top_level = true
+position = Vector2(104, 104)
+shape = SubResource("RectangleShape2D_o0d0n")
+
+[node name="Mid" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mid"]
+top_level = true
+position = Vector2(104, 328)
+shape = SubResource("RectangleShape2D_o0d0n")
+
+[node name="Bot" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bot"]
+top_level = true
+position = Vector2(104, 552)
+shape = SubResource("RectangleShape2D_o0d0n")
+
+[node name="Top 1" parent="." instance=ExtResource("4_xpctt")]
+position = Vector2(2000, 104)
+
+[node name="Top 2" parent="." instance=ExtResource("5_iekq4")]
+position = Vector2(2500, 104)
+
+[node name="Top 5" parent="." instance=ExtResource("5_iekq4")]
+position = Vector2(9500, 104)
+
+[node name="Top 3" parent="." instance=ExtResource("6_eri36")]
+position = Vector2(3000, 104)
+
+[node name="Top 6" parent="." instance=ExtResource("6_eri36")]
+position = Vector2(11500, 104)
+
+[node name="Mid 1" parent="." instance=ExtResource("4_xpctt")]
+position = Vector2(3500, 328)
+
+[node name="Mid 2" parent="." instance=ExtResource("5_iekq4")]
+position = Vector2(4000, 328)
+
+[node name="Mid 5" parent="." instance=ExtResource("5_iekq4")]
+position = Vector2(10000, 328)
+
+[node name="Mid 3" parent="." instance=ExtResource("6_eri36")]
+position = Vector2(4500, 328)
+
+[node name="Mid 6" parent="." instance=ExtResource("6_eri36")]
+position = Vector2(12000, 328)
+
+[node name="Bot 1" parent="." instance=ExtResource("4_xpctt")]
+position = Vector2(5000, 552)
+
+[node name="Bot 2" parent="." instance=ExtResource("5_iekq4")]
+position = Vector2(5500, 552)
+
+[node name="Bot 5" parent="." instance=ExtResource("5_iekq4")]
+position = Vector2(10500, 552)
+
+[node name="Bot 3" parent="." instance=ExtResource("6_eri36")]
+position = Vector2(6000, 552)
+
+[node name="Bot 6" parent="." instance=ExtResource("6_eri36")]
+position = Vector2(12500, 552)
+
+[node name="Bot 7" parent="." instance=ExtResource("6_eri36")]
+visible = false
+position = Vector2(13000, 552)
+
+[node name="Top 4" parent="." instance=ExtResource("4_xpctt")]
+position = Vector2(7500, 104)
+
+[node name="Mid 4" parent="." instance=ExtResource("4_xpctt")]
+position = Vector2(8000, 328)
+
+[node name="Bot 4" parent="." instance=ExtResource("4_xpctt")]
+position = Vector2(8500, 552)
+
+[connection signal="area_entered" from="Top" to="." method="_on_top_area_entered"]
+[connection signal="area_exited" from="Top" to="." method="_on_top_area_exited"]
+[connection signal="area_entered" from="Mid" to="." method="_on_mid_area_entered"]
+[connection signal="area_exited" from="Mid" to="." method="_on_mid_area_exited"]
+[connection signal="area_entered" from="Bot" to="." method="_on_bot_area_entered"]
+[connection signal="area_exited" from="Bot" to="." method="_on_bot_area_exited"]
