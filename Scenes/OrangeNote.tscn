@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://c0kopyf8aigvf"]
 
 [ext_resource type="Script" path="res://Scripts/OrangeNote.gd" id="1_ohjtg"]
-[ext_resource type="Texture2D" uid="uid://yra8kcnm6njh" path="res://orangeNote.png" id="2_4nwyt"]
+[ext_resource type="Texture2D" uid="uid://yra8kcnm6njh" path="res://Images/orangeNote.png" id="2_4nwyt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yqd45"]
 size = Vector2(12, 96)

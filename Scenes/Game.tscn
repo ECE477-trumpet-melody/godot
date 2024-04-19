@@ -1,14 +1,14 @@
 [gd_scene load_steps=8 format=3 uid="uid://ce4vj50lnoj2t"]
 
 [ext_resource type="Script" path="res://Scripts/Game.gd" id="1_f0gv5"]
-[ext_resource type="AudioStream" uid="uid://cbmqyjn2od3w6" path="res://Sounds/flea_short.mp3" id="2_ktjyr"]
+[ext_resource type="AudioStream" uid="uid://cbmqyjn2od3w6" path="res://flea_short.mp3" id="2_ktjyr"]
 [ext_resource type="PackedScene" uid="uid://d2rpw2gcopmov" path="res://Scenes/PinkNote.tscn" id="2_kwmeh"]
-[ext_resource type="Texture2D" uid="uid://b0g3tqbmo8ji2" path="res://477bg_2.png" id="3_qj31p"]
+[ext_resource type="Texture2D" uid="uid://b0g3tqbmo8ji2" path="res://Images/477bg_2.png" id="3_qj31p"]
 [ext_resource type="PackedScene" uid="uid://c0kopyf8aigvf" path="res://Scenes/OrangeNote.tscn" id="5_btx6h"]
 [ext_resource type="PackedScene" uid="uid://l1ig27o4gwuq" path="res://Scenes/GreenNote.tscn" id="6_d1wmn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_keqol"]
-size = Vector2(128, 128)
+size = Vector2(160, 128)
 
 [node name="Game" type="Node2D"]
 light_mask = 0
@@ -45,10 +45,9 @@ top_level = true
 position = Vector2(104, 552)
 shape = SubResource("RectangleShape2D_keqol")
 
-[node name="NotesTimer" type="Timer" parent="."]
-
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_ktjyr")
+bus = &"volControl"
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(576, 328)
@@ -56,36 +55,90 @@ texture = ExtResource("3_qj31p")
 
 [node name="Pink 1" parent="." instance=ExtResource("2_kwmeh")]
 top_level = true
-position = Vector2(3201, 104)
-
-[node name="Pink 2" parent="." instance=ExtResource("2_kwmeh")]
-visible = false
-top_level = true
-position = Vector2(3378, 104)
+position = Vector2(3344, 104)
 
 [node name="Pink 3" parent="." instance=ExtResource("2_kwmeh")]
 top_level = true
-position = Vector2(3909, 328)
+position = Vector2(4054, 328)
 
 [node name="Pink 4" parent="." instance=ExtResource("2_kwmeh")]
 top_level = true
-position = Vector2(3555, 104)
+position = Vector2(3699, 104)
 
 [node name="Orange 1" parent="." instance=ExtResource("5_btx6h")]
-position = Vector2(4617, 328)
-
-[node name="Orange 2" parent="." instance=ExtResource("5_btx6h")]
-visible = false
-position = Vector2(4794, 328)
+position = Vector2(4756, 328)
 
 [node name="Orange 3" parent="." instance=ExtResource("5_btx6h")]
-position = Vector2(4971, 328)
+position = Vector2(5111, 328)
 
 [node name="Orange 4" parent="." instance=ExtResource("5_btx6h")]
-position = Vector2(5277, 552)
+position = Vector2(5467, 552)
+
+[node name="Pink 2" parent="." instance=ExtResource("2_kwmeh")]
+top_level = true
+position = Vector2(8966, 104)
+
+[node name="Pink 5" parent="." instance=ExtResource("2_kwmeh")]
+top_level = true
+position = Vector2(9676, 328)
+
+[node name="Pink 6" parent="." instance=ExtResource("2_kwmeh")]
+top_level = true
+position = Vector2(9321, 104)
+
+[node name="Orange 2" parent="." instance=ExtResource("5_btx6h")]
+position = Vector2(10378, 328)
+
+[node name="Orange 5" parent="." instance=ExtResource("5_btx6h")]
+position = Vector2(10733, 328)
+
+[node name="Orange 6" parent="." instance=ExtResource("5_btx6h")]
+position = Vector2(11089, 552)
+
+[node name="Orange 7" parent="." instance=ExtResource("5_btx6h")]
+position = Vector2(14277, 328)
+
+[node name="Orange 8" parent="." instance=ExtResource("5_btx6h")]
+position = Vector2(14633, 552)
 
 [node name="Green 1" parent="." instance=ExtResource("6_d1wmn")]
-position = Vector2(5659, 552)
+position = Vector2(6152, 552)
+
+[node name="Green 2" parent="." instance=ExtResource("6_d1wmn")]
+position = Vector2(6863, 552)
+
+[node name="Green 3" parent="." instance=ExtResource("6_d1wmn")]
+position = Vector2(7215, 328)
+
+[node name="Green 4" parent="." instance=ExtResource("6_d1wmn")]
+position = Vector2(6508, 104)
+
+[node name="Green 5" parent="." instance=ExtResource("6_d1wmn")]
+position = Vector2(7564, 104)
+
+[node name="Green 6" parent="." instance=ExtResource("6_d1wmn")]
+position = Vector2(7919, 104)
+
+[node name="Green 7" parent="." instance=ExtResource("6_d1wmn")]
+position = Vector2(8275, 104)
+
+[node name="Green 8" parent="." instance=ExtResource("6_d1wmn")]
+position = Vector2(11799, 552)
+
+[node name="Green 9" parent="." instance=ExtResource("6_d1wmn")]
+position = Vector2(12510, 552)
+
+[node name="Green 10" parent="." instance=ExtResource("6_d1wmn")]
+position = Vector2(12862, 328)
+
+[node name="Green 11" parent="." instance=ExtResource("6_d1wmn")]
+position = Vector2(12155, 104)
+
+[node name="Green 12" parent="." instance=ExtResource("6_d1wmn")]
+position = Vector2(13211, 104)
+
+[node name="Green 13" parent="." instance=ExtResource("6_d1wmn")]
+position = Vector2(13566, 104)
 
 [connection signal="area_entered" from="Top" to="." method="_on_top_area_entered"]
 [connection signal="area_exited" from="Top" to="." method="_on_top_area_exited"]

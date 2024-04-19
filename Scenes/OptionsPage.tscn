@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://ilmoh26sbmoy"]
+[gd_scene load_steps=2 format=3 uid="uid://ilmoh26sbmoy"]
 
 [ext_resource type="Script" path="res://Scripts/OptionsPage.gd" id="1_hveqb"]
-[ext_resource type="AudioStream" uid="uid://cnfuttebxl5sc" path="res://Sounds/kara.mp3" id="2_qelco"]
 
 [node name="OptionsPage" type="Control"]
 layout_mode = 3
@@ -35,10 +34,6 @@ offset_bottom = 496.0
 max_value = 1.0
 step = 0.1
 tick_count = 11
-
-[node name="volumeTest" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_qelco")
-bus = &"volControl"
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="drag_ended" from="Volume" to="." method="_on_volume_drag_ended"]

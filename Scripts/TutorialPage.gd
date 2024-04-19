@@ -25,6 +25,9 @@ func _ready():
 func _process(delta):
 	trigger = Input.get_action_strength("side_slide")
 	
+	if Input.is_action_pressed("ui_cancel"):
+		get_tree().change_scene_to_file("res://Scenes/Main.tscn")
+	
 	if partCount < 9:
 		check_slider = true
 	elif partCount < 19:

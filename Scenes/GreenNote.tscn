@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://l1ig27o4gwuq"]
 
 [ext_resource type="Script" path="res://Scripts/GreenNote.gd" id="1_m1grm"]
-[ext_resource type="Texture2D" uid="uid://rpe3nvvy4m4n" path="res://greenNote.png" id="2_iuv0g"]
+[ext_resource type="Texture2D" uid="uid://rpe3nvvy4m4n" path="res://Images/greenNote.png" id="2_iuv0g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yqd45"]
 size = Vector2(12, 96)

@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://cf6umqvscbc3t"]
 
 [ext_resource type="Script" path="res://Scripts/TutorialPage.gd" id="1_8wex7"]
-[ext_resource type="Texture2D" uid="uid://ce4lccv14dlgj" path="res://tutBG1.png" id="2_lakee"]
-[ext_resource type="Texture2D" uid="uid://bbkbhe7tbi086" path="res://tutBG2.png" id="3_h0l6w"]
+[ext_resource type="Texture2D" uid="uid://ce4lccv14dlgj" path="res://Images/tutBG1.png" id="2_lakee"]
+[ext_resource type="Texture2D" uid="uid://bbkbhe7tbi086" path="res://Images/tutBG2.png" id="3_h0l6w"]
 [ext_resource type="PackedScene" uid="uid://d2rpw2gcopmov" path="res://Scenes/PinkNote.tscn" id="4_xpctt"]
 [ext_resource type="PackedScene" uid="uid://c0kopyf8aigvf" path="res://Scenes/OrangeNote.tscn" id="5_iekq4"]
 [ext_resource type="PackedScene" uid="uid://l1ig27o4gwuq" path="res://Scenes/GreenNote.tscn" id="6_eri36"]
@@ -10,7 +10,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o0d0n"]
 size = Vector2(128, 128)
 
-[node name="TuturialPage" type="Control"]
+[node name="TutorialPage" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

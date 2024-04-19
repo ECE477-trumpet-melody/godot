@@ -9,13 +9,11 @@ var sets: Settings
 func _ready():
 	menu_butt.grab_focus()
 	
-	$volumeTest.play()
 	sets = Settings.loadIn()
 	if volume:
 		volume.value = sets.music_volume
 	
 func _on_button_pressed():
-	$volumeTest.stop()
 	get_tree().change_scene_to_file("res://Scenes/Main.tscn")
 
 func _on_new_volume(value):
@@ -23,7 +21,3 @@ func _on_new_volume(value):
 	if sets:
 		sets.music_volume = value
 		sets.save()
-	
-#func _on_volume_drag_ended(value_changed):
-#	if value_changed == true:
-#		$volumeTest.play()

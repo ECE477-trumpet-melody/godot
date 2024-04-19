@@ -30,6 +30,9 @@ func _ready():
 func _process(delta):
 	$Score.text = str(score)
 	
+	if Input.is_action_pressed("ui_cancel"):
+		get_tree().change_scene_to_file("res://Scenes/Main.tscn")
+	
 	var time = (Time.get_ticks_usec() - time_begin) / 1000000.0
 	time -= time_delay
 	time = max(0, time)
@@ -106,3 +109,4 @@ func _on_bot_area_exited(area):
 
 func _on_music_finished():
 	get_tree().change_scene_to_file("res://Scenes/Main.tscn")
+
