@@ -9,4 +9,4 @@ func _process(delta):
 	translate(velocity)
 
 func _on_area_entered(area):
-	pass # check trigger value (.6-1)
+	get_parent().color = 3

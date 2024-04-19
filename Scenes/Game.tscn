@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://ce4vj50lnoj2t"]
 
 [ext_resource type="Script" path="res://Scripts/Game.gd" id="1_f0gv5"]
+[ext_resource type="AudioStream" uid="uid://cbmqyjn2od3w6" path="res://Sounds/flea_short.mp3" id="2_ktjyr"]
 [ext_resource type="PackedScene" uid="uid://d2rpw2gcopmov" path="res://Scenes/PinkNote.tscn" id="2_kwmeh"]
-[ext_resource type="AudioStream" uid="uid://cm35iih4gr8vq" path="res://Sounds/flea.mp3" id="3_klkx6"]
 [ext_resource type="Texture2D" uid="uid://b0g3tqbmo8ji2" path="res://477bg_2.png" id="3_qj31p"]
 [ext_resource type="PackedScene" uid="uid://c0kopyf8aigvf" path="res://Scenes/OrangeNote.tscn" id="5_btx6h"]
 [ext_resource type="PackedScene" uid="uid://l1ig27o4gwuq" path="res://Scenes/GreenNote.tscn" id="6_d1wmn"]
@@ -25,73 +25,65 @@ horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="Top" type="Area2D" parent="."]
-monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Top"]
+top_level = true
 position = Vector2(104, 104)
 shape = SubResource("RectangleShape2D_keqol")
 
 [node name="Mid" type="Area2D" parent="."]
-monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Mid"]
-position = Vector2(104, 336)
+top_level = true
+position = Vector2(104, 328)
 shape = SubResource("RectangleShape2D_keqol")
 
 [node name="Bot" type="Area2D" parent="."]
-monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bot"]
+top_level = true
 position = Vector2(104, 552)
 shape = SubResource("RectangleShape2D_keqol")
 
 [node name="NotesTimer" type="Timer" parent="."]
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_klkx6")
+stream = ExtResource("2_ktjyr")
 
 [node name="Background" type="Sprite2D" parent="."]
-position = Vector2(576, 324)
+position = Vector2(576, 328)
 texture = ExtResource("3_qj31p")
 
 [node name="Pink 1" parent="." instance=ExtResource("2_kwmeh")]
 top_level = true
-light_mask = 1
-visibility_layer = 1
-position = Vector2(3374, 104)
+position = Vector2(3201, 104)
 
 [node name="Pink 2" parent="." instance=ExtResource("2_kwmeh")]
 top_level = true
-light_mask = 1
-visibility_layer = 1
-position = Vector2(3551, 104)
+position = Vector2(3378, 104)
 
 [node name="Pink 3" parent="." instance=ExtResource("2_kwmeh")]
 top_level = true
-light_mask = 1
-visibility_layer = 1
-position = Vector2(4082, 328)
+position = Vector2(3909, 328)
 
 [node name="Pink 4" parent="." instance=ExtResource("2_kwmeh")]
 top_level = true
-light_mask = 1
-visibility_layer = 1
-position = Vector2(3728, 104)
+position = Vector2(3555, 104)
 
 [node name="Orange 1" parent="." instance=ExtResource("5_btx6h")]
-position = Vector2(4790, 328)
+position = Vector2(4617, 328)
 
 [node name="Orange 2" parent="." instance=ExtResource("5_btx6h")]
-position = Vector2(4967, 328)
+position = Vector2(4794, 328)
 
 [node name="Orange 3" parent="." instance=ExtResource("5_btx6h")]
-position = Vector2(5144, 328)
+position = Vector2(4971, 328)
 
 [node name="Orange 4" parent="." instance=ExtResource("5_btx6h")]
-position = Vector2(5450, 552)
+position = Vector2(5277, 552)
 
 [node name="Green 1" parent="." instance=ExtResource("6_d1wmn")]
-position = Vector2(5832, 552)
+position = Vector2(5659, 552)
 
 [connection signal="area_entered" from="Top" to="." method="_on_top_area_entered"]
 [connection signal="area_exited" from="Top" to="." method="_on_top_area_exited"]
@@ -99,3 +91,4 @@ position = Vector2(5832, 552)
 [connection signal="area_exited" from="Mid" to="." method="_on_mid_area_exited"]
 [connection signal="area_entered" from="Bot" to="." method="_on_bot_area_entered"]
 [connection signal="area_exited" from="Bot" to="." method="_on_bot_area_exited"]
+[connection signal="finished" from="Music" to="." method="_on_music_finished"]

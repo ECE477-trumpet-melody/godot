@@ -5,10 +5,6 @@ extends CanvasLayer
 func _ready():
 	tut_butt.grab_focus()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
 func _on_tutorial_pressed():
 	get_tree().change_scene_to_file("res://Scenes/TutorialPage.tscn")
 
